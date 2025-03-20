@@ -17,7 +17,7 @@ const App = () => {
 
   const fetchContacts = () => {
     setLoading(true);
-    axios.get("http://localhost:8080/api/contacts")
+    axios.get(`http://${window.location.hostname}:8080/api/contacts`)
       .then(response => {
         setContacts(response.data);
         setError(null);
@@ -34,13 +34,13 @@ const App = () => {
   }, []);
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:8080/api/contacts/${id}`)
+    axios.delete(`http://${window.location.hostname}:8080/api/contacts/${id}`)
       .then(() => setContacts(contacts.filter(contact => contact.id !== id)))
       .catch(error => console.error("Error deleting contact", error));
   };
 
   const handleEdit = (id, updatedContact) => {
-    axios.put(`http://localhost:8080/api/contacts/${id}`, updatedContact)
+    axios.put(`http://${window.location.hostname}:8080/api/contacts/${id}`, updatedContact)
       .then(response => {
         const updatedContacts = contacts.map(contact =>
           contact.id === id ? response.data : contact
@@ -53,7 +53,7 @@ const App = () => {
   const handleAddNew = () => {
     if (!newContact.name.trim() || !newContact.email.trim()) return;
     
-    axios.post("http://localhost:8080/api/contacts", newContact)
+    axios.post(`http://${window.location.hostname}:8080/api/contacts`, newContact)
       .then(response => {
         setContacts([response.data, ...contacts]); // Add new contact at the top
         setNewContact({ name: "", email: "", phone: "", profilePictureUrl: "" });

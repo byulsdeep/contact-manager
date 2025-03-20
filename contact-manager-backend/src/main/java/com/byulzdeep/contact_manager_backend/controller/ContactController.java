@@ -19,7 +19,8 @@ import com.byulzdeep.contact_manager_backend.repository.ContactRepository;
 
 @RestController
 @RequestMapping("/api/contacts")
-@CrossOrigin(origins = "http://localhost:3000") // Allow React frontend
+// @CrossOrigin(origins = "http://localhost:3000") // Allow React frontend
+@CrossOrigin(origins = "*")
 public class ContactController {
 
     private final ContactRepository contactRepository;
