@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "java",
+        "request": "launch",
+        "name": "Launch Backend",
+        "mainClass": "com.byulzdeep.contact_manager_backend.ContactManagerBackendApplication",
+        "cwd": "${workspaceFolder}/contact-manager-backend",
+      }
+    ]
+  }
+  
